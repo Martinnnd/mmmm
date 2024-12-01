@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>document</title>
+</head>
+<body>
+<div class="contenedor">
+    <h1>¿Qué onda? que preferis hacer el finde?</h1>
+    
+    <form id="formEncuesta" action="enviarCorreo.php" method="POST">
+        <select name="respuesta" id="respuesta">
+            <option value="">--Opciones--</option>
+            <option value="SI">Ir a capital al ateneo</option>
+            <option value="SI_mejor">Ir a merendar a la tarde</option>
+            <option value="SI_mejor">Ir a pasear a algun lado</option>
+        </select>
+        <br><br>
+        <button type="submit">Enviar Respuesta</button>
+    </form>
+
+    <audio loop id="audioelement">
+        <source src="content/Angel.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+         // Función para enviar el formulario con AJAX
+         document.getElementById('formEncuesta').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar recargar la página
+
+            const respuesta = document.getElementById('respuesta').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (respuesta) {
+                // Hacer una petición POST con fetch
+                fetch('enviarCorreo.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'respuesta': respuesta
+                    })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Mostrar mensaje de éxito o error
+                    mensaje.textContent = data;
+                    mensaje.style.color = "green";
+                })
+                .catch(error => {
+                    mensaje.textContent = "Error al enviar el correo.";
+                    mensaje.style.color = "red";
+                });
+            } else {
+                mensaje.textContent = "Por favor, selecciona una opción.";
+                mensaje.style.color = "red";
+            }
+        });
+
+        const playSound = function() {
+            document.getElementById('audioelement').play();
+            document.removeEventListener('click', playSound);
+        }
+        document.addEventListener('click', playSound);
+    </script>
+</div>
+</body>
+</html>

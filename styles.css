@@ -1,0 +1,69 @@
+body{
+    width: auto;
+    background-image: url(https://wallpapers.com/images/featured/el-weeknd-after-hours-3cedl88oh962sybq.jpg);
+    background-size: cover;
+    
+
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    margin: 200px 300px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+h1{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+select{
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    padding: 10px;
+   margin: 100px 300px; 
+}
+
+button{
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    margin: 0 300px; 
+}
+
+@media only screen and (max-width: 768px) {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+        margin: 50px 20px; /* Ajuste del margen para pantallas más pequeñas */
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    select {
+        color: white;
+        background-color: red;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 20px; /* Ajuste del margen para pantallas pequeñas */
+    }
+
+    button {
+        color: white;
+        background-color: red;
+        border-radius: 20px;
+        margin: 20px; /* Ajuste del margen para botones */
+    }
+}
+
+
+
+
