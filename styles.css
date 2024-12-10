@@ -1,69 +1,93 @@
-body{
-    width: auto;
-    background-image: url(https://wallpapers.com/images/featured/el-weeknd-after-hours-3cedl88oh962sybq.jpg);
-    background-size: cover;
-    
+body {
+  width: auto;
+  background-image: url(https://wallpapers.com/images/featured/el-weeknd-after-hours-3cedl88oh962sybq.jpg);
+  background-size: cover;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  margin: 200px 300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  border-radius: 20px;
+}
+
+h1 {
+  color: beige;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+select {
+  color: white;
+  background-color: beige;
+  color:black;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 100px 230px;
+  text-align: center;
 
 }
 
-.contenedor{
+button {
+  color: black;
+  background-color: beige;
+  border-radius: 20px;
+  margin: 10px 300px;
+  padding: 10px;
+  border: 1px solid grey;
+  transition: all .2s;
+}
+
+button:hover{
+    background-color: yellow;
+    transition: all .2s;
+}
+
+.contenedor-canciones{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  border-radius: 20px;
+}
+
+.contenedor-canciones h2{
+    color: beige;
+}
+
+.contenedor-canciones select{
+    margin: 0 60px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contenedor {
     display: flex;
     flex-direction: column;
-    margin: 200px 300px;
+    margin: 50px 20px; /* Ajuste del margen para pantallas más pequeñas */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-}
+  }
 
-h1{
+  h1 {
     color: white;
     text-align: center;
     text-transform: uppercase;
-}
+  }
 
-select{
+  select {
     color: white;
     background-color: red;
     border-radius: 20px;
     padding: 10px;
-   margin: 100px 300px; 
-}
+    margin: 20px; /* Ajuste del margen para pantallas pequeñas */
+  }
 
-button{
+  button {
     color: white;
     background-color: red;
     border-radius: 20px;
-    margin: 0 300px; 
+    margin: 20px; /* Ajuste del margen para botones */
+  }
 }
-
-@media only screen and (max-width: 768px) {
-    .contenedor {
-        display: flex;
-        flex-direction: column;
-        margin: 50px 20px; /* Ajuste del margen para pantallas más pequeñas */
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    }
-
-    h1 {
-        color: white;
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-    select {
-        color: white;
-        background-color: red;
-        border-radius: 20px;
-        padding: 10px;
-        margin: 20px; /* Ajuste del margen para pantallas pequeñas */
-    }
-
-    button {
-        color: white;
-        background-color: red;
-        border-radius: 20px;
-        margin: 20px; /* Ajuste del margen para botones */
-    }
-}
-
-
 
 

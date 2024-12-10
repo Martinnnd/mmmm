@@ -7,15 +7,28 @@
     <title>document</title>
 </head>
 <body>
+
+    <div class="contenedor-canciones">
+        <h2>Cambiar canción de fondo</h2>
+    <select id="canciones">
+        <option value="content/Angel.mp3">Ángel</option>
+        <option value="content/The Weeknd - Repeat After Me (Interlude) (Audio).mp3">Repeat after me</option>
+        <option value="content/The Weeknd - Wicked Games (Official Video - Explicit).mp3">Wicked games</option>
+        <option value="content/The Weeknd - Cant Feel My Face (Official Audio).mp3">Cant feel my face</option>
+        <option value="content/Post Malone, The Weeknd - One Right Now (Official Audio).mp3">One right now</option>
+    </select>
+    </div>
 <div class="contenedor">
-    <h1>¿Qué onda? que preferis hacer el finde?</h1>
+    <h1>¿Qué te gustaría hacer el finde?</h1>
     
     <form id="formEncuesta" action="enviarCorreo.php" method="POST">
         <select name="respuesta" id="respuesta">
-            <option value="">--Opciones--</option>
+            <option value="">-- Opciones --</option>
             <option value="SI">Ir a capital al ateneo</option>
             <option value="SI_mejor">Ir a merendar a la tarde</option>
-            <option value="SI_mejor">Ir a pasear a algun lado</option>
+            <option value="SI_mejor">Ir a pasear a algún lado</option>
+            <option value="SI_mejor">Cancha de River jajaja</option>
+            <option value="SI_mejor">Vamos a un escape room o un lugar así</option>
         </select>
         <br><br>
         <button type="submit">Enviar Respuesta</button>
@@ -26,8 +39,8 @@
     </audio>
 
     <script>
-         // Función para enviar el formulario con AJAX
-         document.getElementById('formEncuesta').addEventListener('submit', function(event) {
+        // Función para enviar el formulario con AJAX
+        document.getElementById('formEncuesta').addEventListener('submit', function(event) {
             event.preventDefault(); // Evitar recargar la página
 
             const respuesta = document.getElementById('respuesta').value;
@@ -60,11 +73,22 @@
             }
         });
 
+        // Reproducción automática de audio al hacer clic
+        const audioElement = document.getElementById('audioelement');
+        const cancionesSelect = document.getElementById('canciones');
+
         const playSound = function() {
-            document.getElementById('audioelement').play();
+            audioElement.play();
             document.removeEventListener('click', playSound);
         }
         document.addEventListener('click', playSound);
+
+        // Cambiar canción al seleccionar una opción
+        cancionesSelect.addEventListener('change', function() {
+            const nuevaCancion = cancionesSelect.value;
+            audioElement.src = nuevaCancion;
+            audioElement.play();
+        });
     </script>
 </div>
 </body>
